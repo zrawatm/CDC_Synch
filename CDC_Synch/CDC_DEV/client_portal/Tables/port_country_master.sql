@@ -1,0 +1,14 @@
+﻿CREATE TABLE [common].[port_country_master](
+	[port_code] [nvarchar](7) NULL,
+	[port] [varchar](30) NULL,
+	[port_native] [nvarchar](255) NULL,
+	[port_lat] [float] NULL,
+	[port_lon] [float] NULL,
+	[country] [varchar](44) NULL,
+	[country_iso2] [varchar](2) NULL,
+	[country_iso3] [varchar](3) NULL,
+	[country_lat] [float] NULL,
+	[country_lon] [float] NULL,
+	[unlocode_port_lat] [float] NULL,
+	[unlocode_port_lon] [float] NULL
+) ON [PRIMARY]

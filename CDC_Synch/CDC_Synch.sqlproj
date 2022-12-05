@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>CDC_Synch</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{70506f41-a019-4030-904a-ae901d98935c}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql150DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>CDC_Synch</RootNamespace>
+    <AssemblyName>CDC_Synch</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <GenerateCreateScript>False</GenerateCreateScript>
+    <IncludeSchemaNameInFileName>False</IncludeSchemaNameInFileName>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="CDC_DEV" />
+    <Folder Include="CDC_QA" />
+    <Folder Include="CDC_STAGE" />
+    <Folder Include="CDC_PROD" />
+    <Folder Include="CDC_DEV\client_portal" />
+    <Folder Include="CDC_DEV\client_portal\Functions" />
+    <Folder Include="CDC_DEV\client_portal\Views" />
+    <Folder Include="CDC_DEV\client_portal\User Defined Table Types" />
+    <Folder Include="CDC_DEV\client_portal\Tables" />
+    <Folder Include="CDC_DEV\client_portal\Stored Procedures" />
+    <Folder Include="Security" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Security\client_portal.sql" />
+    <Build Include="CDC_DEV\client_portal\Stored Procedures\p_start_dev.sql" />
+    <Build Include="CDC_DEV\client_portal\Tables\temp_vessel_master.sql" />
+    <Build Include="Security\common.sql" />
+    <Build Include="CDC_DEV\client_portal\Views\v_vessel_master_jibe.sql" />
+    <Build Include="Security\jibe.sql" />
+    <Build Include="CDC_DEV\client_portal\Tables\vessel_dev.sql" />
+    <Build Include="CDC_DEV\client_portal\Stored Procedures\p_print.sql" />
+    <Build Include="CDC_DEV\client_portal\Stored Procedures\p_main.sql" />
+    <Build Include="CDC_DEV\client_portal\Tables\vessel_audit.sql" />
+    <Build Include="CDC_DEV\client_portal\Views\v_jibe_vid.sql" />
+    <Build Include="CDC_DEV\client_portal\Tables\vesselParticulars.sql" />
+    <Build Include="CDC_DEV\client_portal\Tables\vessel.sql" />
+    <Build Include="CDC_DEV\client_portal\Views\v_dest_SourceSystem.sql" />
+    <Build Include="CDC_DEV\client_portal\Tables\SourceSystem.sql" />
+    <Build Include="CDC_DEV\client_portal\Views\v_dest_Country.sql" />
+    <Build Include="CDC_DEV\client_portal\Tables\Country.sql" />
+    <Build Include="CDC_DEV\client_portal\Tables\port_country_master.sql" />
+    <Build Include="CDC_DEV\client_portal\Views\v_dest_CISPort.sql" />
+    <Build Include="CDC_DEV\client_portal\Tables\CISPort.sql" />
+    <Build Include="Security\cis.sql" />
+    <Build Include="CDC_DEV\client_portal\Tables\csm02.sql" />
+    <Build Include="CDC_DEV\client_portal\Tables\temp_Port.sql" />
+    <Build Include="CDC_DEV\client_portal\Views\v_dest_Port.sql" />
+    <Build Include="CDC_DEV\client_portal\Tables\Port.sql" />
+    <Build Include="CDC_DEV\client_portal\Tables\temp_Organization.sql" />
+    <Build Include="CDC_DEV\client_portal\Views\v_dest_Organization.sql" />
+    <Build Include="CDC_DEV\client_portal\Tables\Organization.sql" />
+    <Build Include="CDC_DEV\client_portal\Views\v_dest_VesselType.sql" />
+    <Build Include="CDC_DEV\client_portal\Tables\VesselType.sql" />
+    <Build Include="CDC_DEV\client_portal\Tables\temp_Vessel.sql" />
+    <Build Include="CDC_DEV\client_portal\Views\v_dest_Vessel.sql" />
+  </ItemGroup>
+</Project>

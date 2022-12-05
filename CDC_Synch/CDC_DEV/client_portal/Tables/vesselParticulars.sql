@@ -1,0 +1,22 @@
+﻿CREATE TABLE [jibe].[vesselParticulars](
+	[vid] [int] NULL,
+	[vessel_short_name] [varchar](500) NULL,
+	[vessel_name] [varchar](500) NULL,
+	[client_vessel_id] [varchar](500) NULL,
+	[imo_code] [varchar](500) NULL,
+	[vid_name] [varchar](500) NULL,
+	[vid_value] [varchar](2000) NULL,
+	[vid_type] [varchar](500) NULL,
+	[vid_uom] [varchar](500) NULL,
+	[category] [varchar](500) NULL,
+	[sub_category] [varchar](500) NULL,
+	[effective_date] [datetime] NULL,
+	[expiry_date] [datetime] NULL,
+	[date_of_creation] [datetime] NULL,
+	[date_of_modification] [datetime] NULL,
+	[active_status] [int] NULL,
+	[mandatory] [int] NULL,
+	[cdc_id] [bigint] IDENTITY(1,1) NOT NULL,
+	[cdc_creation_date] [datetime] NULL,
+	[cdc_modified_date] [datetime] NULL
+) ON [PRIMARY]
